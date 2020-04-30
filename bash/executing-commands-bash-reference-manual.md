@@ -1,0 +1,4 @@
+# Executing Commands \(Bash Reference Manual\)
+
+ • [Simple Command Expansion](simple-command-expansion-bash-reference-manual.md#Simple-Command-Expansion):  How Bash expands simple commands before executing them. • [Command Search and Execution](command-search-and-execution-bash-reference-manual.md#Command-Search-and-Execution):  How Bash finds commands and runs them. • [Command Execution Environment](command-execution-environment-bash-reference-manual.md#Command-Execution-Environment):  The environment in which Bash executes commands that are not shell builtins. • [Environment](environment-bash-reference-manual.md#Environment):  The environment given to a command. • [Exit Status](exit-status-bash-reference-manual.md#Exit-Status):  The status returned by commands and how Bash interprets it. • [Signals](signals-bash-reference-manual.md#Signals):  What happens when Bash or a command it runs receives a signal.
+
