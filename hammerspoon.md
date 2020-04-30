@@ -1,3 +1,5 @@
+# Hammerspoon
+
 ```lua
 -- Call Hammerspoon functions from AppleScript
 
@@ -30,3 +32,4 @@ end)
 -- you can then call it from the shell like so
 open -g hammerspoon://someAlert
 ```
+

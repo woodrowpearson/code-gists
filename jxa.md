@@ -1,3 +1,5 @@
+# JXA
+
 ```javascript
 // Get URL of front most tab
 Application("Google Chrome Canary").windows[0].activeTab.url();
@@ -94,3 +96,4 @@ Application("Google Chrome Canary").windows[0].activeTab.execute({
   return main();
 })();
 ```
+

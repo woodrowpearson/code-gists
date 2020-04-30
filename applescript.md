@@ -1,4 +1,6 @@
-```applescript
+# AppleScript
+
+```text
 -- Scrape all URLs from all tabs in all windows
 -- https://forum.keyboardmaestro.com/t/save-and-restore-safari-session-tabs/15036/4
 set AppleScript's text item delimiters to linefeed
@@ -8,24 +10,24 @@ end tell
 return urlList
 ```
 
-```applescript
+```text
 -- Expand Typinator abbreviation
 tell application "Typinator"
   expand string "dd"
 end tell
 ```
 
-```applescript
+```text
 -- Print URL of current tab
 tell app "safari" to url of document 1
 ```
 
-```applescript
+```text
 -- Show source of current document
 tell app "safari" to source of document 1
 ```
 
-```applescript
+```text
 -- Activate menu bar of an app
 
 -- Accepts a list of form: `{"Finder", "View", "Arrange By", "Date"}`
@@ -70,17 +72,17 @@ tell application "Safari" to activate
 menu_click({"Safari", "Bookmarks", "Edit Bookmarks"})
 ```
 
-```applescript
+```text
 -- Get path of app
 POSIX path of (path to application "Sublime Text")
 ```
 
-```applescript
+```text
 -- Assign variable to system variable
 set var1 to (system attribute "var1")
 ```
 
-```applescript
+```text
 -- Trigger a keypress
 -- http://macbiblioblog.blogspot.com/2014/12/key-codes-for-function-and-special-keys.html
 
@@ -94,14 +96,14 @@ tell application "System Events" to keystroke "a" using command down
 tell application "System Events" to key code 36
 ```
 
-```applescript
+```text
 -- Run KM macro
 tell application "Keyboard Maestro Engine"
 do script "w: github"
 end tell
 ```
 
-```applescript
+```text
 -- Capture first argument to script
 
 -- Need to wrap it in run argv clause
@@ -113,31 +115,31 @@ on run argv
 end run
 ```
 
-```applescript
+```text
 -- Type something
 tell application "System Events"
   keystroke "Hello"
 end tell
 ```
 
-```applescript
+```text
 -- Get path of open document in an app
 
 -- Change "MacDown" to another app
 tell application "MacDown" to set file_path to file of front document
 ```
 
-```applescript
+```text
 -- Get URL of open Safari tab
 tell application "Safari" to return URL of front document
 ```
 
-```applescript
+```text
 -- Convert to POSIX path
 set inputPath to POSIX path of input
 ```
 
-```applescript
+```text
 -- Select first result from google search and load it in the front tab.
 -- Works on Safari only.
 
@@ -166,20 +168,19 @@ tell application "Safari"
 end tell
 ```
 
-```applescript
+```text
 -- Search Alfred with query
 osascript -e "tell application \"Alfred 4\" to search \"$*\""
-
 ```
 
-```applescript
+```text
 -- Get number of Safari windows
 tell application "Safari"
    set numberOfSafariWindows to length of (get current tab of windows)
 end tell
 ```
 
-```applescript
+```text
 -- Search for tag in finder
 on run argv
   set theQuery to first item of argv
@@ -199,7 +200,7 @@ on run argv
 end run
 ```
 
-```applescript
+```text
 -- Check if currently running app is full screen
 tell application "System Events"
     tell (first application process whose frontmost is true)
@@ -211,7 +212,7 @@ tell application "System Events"
   end tell
 ```
 
-```applescript
+```text
 -- Set front window of front app to full-screen
 try
   tell application "System Events"
@@ -241,12 +242,12 @@ on error e number n
 end try
 ```
 
-```applescript
+```text
 -- Set clipboard to
 set the clipboard to "Some text"
 ```
 
-```applescript
+```text
 -- cd to passed in dir in iTerm
 on run argv
   set theQuery to item 1 of argv
@@ -266,7 +267,8 @@ on run argv
 end run
 ```
 
-```applescript
+```text
 -- Run shell command in sudo mode
 do shell script "command here" with administrator privileges
 ```
+

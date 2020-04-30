@@ -1,4 +1,6 @@
-```js
+# JavaScript
+
+```javascript
 // Click on buttons in a page
 // https://twitter.com/brian_lovin/status/1240662440666222597
 
@@ -11,7 +13,8 @@ for (let [i, v] of [...buttons].entries()) {
 }
 ```
 
-```js
+```javascript
 // Go to specific URL
 window.location.href = "https://www.google.com";
 ```
+
