@@ -193,3 +193,26 @@ data["masks"]["id"]
 data["om_points"]
 ```
 
+#### Return nth Fibonacci sequence
+
+```python
+#  Fibonacci numbers, with an one-liner in Python 3?
+from functools import reduce
+
+fib = lambda n:reduce(lambda x,n:[x[1],x[0]+x[1]], range(n),[0,1])[0]
+
+#  (this maintains a tuple mapped from [a,b] to [b,a+b], initialized to
+#  [0,1], iterated N times, then takes the first tuple element)
+
+fib(1000)
+43466557686937456435688527675040625802564660517371780402481729089536555417949051
+89040387984007925516929592259308032263477520968962323987332247116164299644090653
+3187938298969649928516003704476137795166849228875L
+
+#  (note that in this numbering, fib(0) = 0, fib(1) = 1, fib(2) = 1,
+#  fib(3) = 2, etc.)
+#
+#  (also note: reduce is a builtin in Python 2.7 but not in Python 3;
+#  you'd need to execute from functools import reduce in Python 3.)
+```
+
