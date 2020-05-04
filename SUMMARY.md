@@ -178,3 +178,7 @@
 
 * [Python Snippets](python-examples/python-snippets.md)
 
+## Bash Snippets
+
+* [Bash Helper Snippets](bash-snippets/bash-helper-snippets.md)
+

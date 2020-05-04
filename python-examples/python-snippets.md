@@ -173,5 +173,23 @@ root@NAS:InstantUpload# time ~/scripts/checkDuplicates.py
 ```
 {% endcode %}
 
+#### Read JSON file
 
+```python
+#  Then you can use your code:
+
+import json
+from pprint import pprint
+
+with open('data.json') as f:
+    data = json.load(f)
+
+pprint(data)
+
+#  With data, you can now also find values like so:
+
+data["maps"][0]["id"]
+data["masks"]["id"]
+data["om_points"]
+```
 
