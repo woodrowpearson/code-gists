@@ -1,5 +1,7 @@
 # Python
 
+#### Open file
+
 ```python
 # read file line by line
 with open('filename') as f:

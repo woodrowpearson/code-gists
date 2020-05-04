@@ -174,3 +174,7 @@
 
 * [Go Examples](go-examples/go-examples.md)
 
+## Python Examples
+
+* [Python Snippets](python-examples/python-snippets.md)
+
