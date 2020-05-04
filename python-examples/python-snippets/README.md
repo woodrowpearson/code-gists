@@ -216,3 +216,169 @@ fib(1000)
 #  you'd need to execute from functools import reduce in Python 3.)
 ```
 
+#### Minimum Window Substring
+
+```python
+#  find Minimum Window Substring
+#
+#  Assume that String S and T only contains A-Z characters (26
+#  characters)
+#
+    #  * First, create an array count, which store the frequency of each
+#  characters in T.
+    #  * Process each character in S, maintaining a window l, r, which
+#  will be the current minimum window that contains all characters in T.
+    #  * We maintain an array cur to store the current frequency of
+#  characters in window. If the frequency of the character at the left
+#  end of the window is greater than needed frequency, we increase l
+#
+#  Sample Code:
+
+    int[]count = new int[26];
+    for(int i = 0; i < T.length; i++)
+        count[T[i] - 'A']++;
+
+    int need = 0;//Number of unique characters in T
+    for(int i = 0; i < 26; i++)
+        if(count[i] > 0)
+           need++;
+    int l = 0, r = 0;
+    int count = 0;
+    int result ;
+    int[]cur = new int[26];
+    for(int i = 0; i < S.length; i++){
+         cur[S[i] - 'A']++;
+         r = i;
+         if(cur[S[i] - 'A'] == count[S[i] - `A`]){
+             count++;
+         }
+         //Update the start of the window,
+         while(cur[S[l] - 'A'] > count[S[l] - 'A']){
+               cur[S[l] - 'A']--;
+               l++;
+         }
+         if(count == need)
+             result = min(result, r - l + 1);
+    }
+
+#  Each character in S will be processed at most two times, which give us
+#  O(n) complexity.
+```
+
+#### Rainwater Problem
+
+```python
+#  Calculate trapped water in a structure
+#
+#  This can be solved in linear time with linear memory requirements in
+#  the following way:
+
+def answer(heights):
+    minLeft = [0] * len(heights)
+    left = 0
+    for idx, h in enumerate(heights):
+        if left < h:
+            left = h
+        minLeft[idx] = left
+
+    minRight = [0] * len(heights)
+    right = 0
+    for idx, h in enumerate(heights[::-1]):
+        if right < h:
+            right = h
+        minRight[len(heights) - 1 - idx] = right
+
+    water = 0
+    for h, l, r in zip(heights, minLeft, minRight):
+        water += min([l, r]) - h
+
+    return water
+
+#  The arrays minLeft and minRight contain the highest level at which
+#  water can be supported at a place in the array if there was a wall of
+#  infinite size on the right or left side respectively. Then at each
+#  index, total water that can be contained is the minimum of the water
+#  levels supported by the left and the right side - height of the floor.
+#
+#  This question deals with this problem in higher dimension (relating it
+#  to the Watershed problem in image processing):
+#  https://stackoverflow.com/questions/21818044/the-maximum-volume-of-
+#  trapped-rain-water-in-3d
+```
+
+#### House Robber Problem
+
+```python
+#  Issue with memoization - House Robber problem
+#
+#  Your approach for memoization won't work because when you reach some
+#  index i, if you've already computed some result for i, your algorithm
+#  fails to consider the fact that there might be a better result
+#  available by robbing a more optimal set of houses in the left portion
+#  of the array.
+#
+#  The solution to this dilemma is to avoid passing the running value
+#  (money you've robbed) downward through the recursive calls from
+#  parents to children. The idea is to compute sub-problem results
+#  without any input from ancestor nodes, then build the larger solutions
+#  from the smaller ones on the way back up the call stack.
+#
+#  Memoization of index i will then work because a given index i will
+#  always have a unique set of subproblems whose solutions will not be
+#  corrupted by choices from ancestors in the left portion of the array.
+#  This preserves the optimal substructure that's necessary for DP to
+#  work.
+#
+#  Additionally, I recommend avoiding global variables in favor of
+#  passing your data directly into the function.
+
+def maximize_robberies(houses, memo, i=0):
+    if i in memo:
+        return memo[i]
+    elif i >= len(houses):
+        return 0
+
+    memo[i] = max(
+        houses[i] + maximize_robberies(houses, memo, i + 2),
+        maximize_robberies(houses, memo, i + 1)
+    )
+    return memo[i]
+
+print(maximize_robberies([1, 2, 1, 1], {}))
+```
+
+#### URL shortener example
+
+```python
+  def generate_random_slug():
+    global current_random_slug_id
+    while True:
+        slug = base_conversion(current_random_slug_id, base_62_alphabet)
+        current_random_slug_id += 1
+        # Make sure the slug isn't already used
+        existing = DB.get({'slug': slug})
+        if not existing:
+            return slug
+            
+
+## Using the actual bit.ly package
+
+from bitlyshortener import Shortener
+
+tokens_pool = ['bitly_general_access_token']  # Use your own.
+shortener = Shortener(tokens=tokens_pool, max_cache_size=128)
+
+@usr_account.route("/account/createtable", methods=["POST"])
+def account_createtable():
+    form = CreateTableForm(request.form)
+    if form.validate():
+        tableid = DB.add_table(form.tablenumber.data, current_user.get_id())
+        new_urls = [f'{config.base_url}newrequest/{tableid}']
+        short_url = shortener.shorten_urls(new_urls)[0]
+        DB.update_table(tableid, short_url)
+        return redirect(url_for('account.account'))
+    return render_template("account.html", createtableform=form, tables=DB.get_tables(current_user.get_id()))
+```
+
+#### 
+

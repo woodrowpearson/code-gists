@@ -176,7 +176,8 @@
 
 ## Python Examples
 
-* [Python Snippets](python-examples/python-snippets.md)
+* [Python Snippets](python-examples/python-snippets/README.md)
+  * [Python Interview Questions](python-examples/python-snippets/python-interview-questions.md)
 
 ## Bash Snippets
 
