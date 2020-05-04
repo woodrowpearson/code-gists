@@ -380,5 +380,20 @@ def account_createtable():
     return render_template("account.html", createtableform=form, tables=DB.get_tables(current_user.get_id()))
 ```
 
-#### 
+#### Multiple Hash Function
+
+```python
+#  ## Consider using dataclasses
+#  For most objects you write __hash__ functions for, you actually want
+#  to be using a dataclass generated class
+#  (https://docs.python.org/3.7/library/dataclasses.html):
+
+from dataclasses import dataclass
+from typing import Union
+
+@dataclass(frozen=True)
+class Foo:
+    a: Union[int, str]
+    b: Union[int, str]
+```
 
