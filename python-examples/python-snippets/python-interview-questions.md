@@ -6,17 +6,18 @@ description: Infra/SRE focuse
 
 ## Dictionary File Problem
 
-{% hint style="info" %}
+{% hint style="warning" %}
 Suppose that you have a dictionary file that has words separated by a single whitespace, kept in sorted order. So for instance, if you had three words in your dictionary, "dog", "cat", and "horse", your dictionary file would look like:
 
 cat dog horse
 
-1. Implement a function exists that indicates whether an argument passed in dictionary.
+1. **Implement a function exists that indicates whether an argument passed in dictionary.**
 
 def exists\(word, filename\): """Returns true iff word is part of the dictionary represented by filename"""
 
-1. If you could modify the format of this file to support more efficient lookups, what would you change about the file format?
-2. Compound words are words that are composed of other words. Using the exists\(\) function you implemented earlier, implement a function that indicates whether a word is a compound word.
+   **2. If you could modify the format of this file to support more efficient lookups, what would you change about the file format?**
+
+   **3. Compound words are words that are composed of other words. Using the exists\(\) function you implemented earlier, implement a function that indicates whether a word is a compound word.**
 
 def is\_compound\(word, filename\): """Returns true iff word is a compound word"""
 
@@ -25,7 +26,7 @@ So, for example, if you have the same dictionary as indicated above, the followi
 is\_compound\('catdog', dictionary\_file\) -&gt; True is\_compound\('dogcat', dictionary\_file\) -&gt; True is\_compound\('catdoghorse', dictionary\_file\) =&gt; True is\_compound\('dogparrotcat', dictionary\_file\) =&gt; False
 {% endhint %}
 
-{% hint style="success" %}
+{% hint style="info" %}
 1. Implement a function exists that indicates whether an argument passed in is part of the dictionary.
 {% endhint %}
 
@@ -83,7 +84,7 @@ def exists(word, filename):
 
 
 
-{% hint style="success" %}
+{% hint style="info" %}
 2. If you could modify the format of this file to support more efficientlookups, what would you change about the file format?
 {% endhint %}
 
